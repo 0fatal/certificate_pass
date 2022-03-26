@@ -5,8 +5,21 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final Widget? home;
+  final ThemeData? theme;
 
+  MyApp({Key? key, this.home, this.theme}) : super(key: key) {
+    // initDio();
+    Routes.initRoutes();
+  }
+
+  void initDio() {
+    // final List<Interceptor> interceptors = <Interceptor>[];
+    // // configDio(
+    // //   baseUrl: '',
+    // //   interceptors: null
+    // // )
+  }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {

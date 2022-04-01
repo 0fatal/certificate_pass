@@ -34,6 +34,10 @@ dependencies:
   common_utils: ^2.1.0
     # 图片缓存 https://github.com/renefloor/flutter_cached_network_image
   cached_network_image: ^3.2.0
+    # 状态管理 https://github.com/rrousselGit/provider
+  provider: ^6.0.2
+  # 获取当前设备信息 https://github.com/fluttercommunity/plus_plugins/tree/main/packages/device_info_plus
+  device_info_plus: 3.2.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -44,6 +48,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

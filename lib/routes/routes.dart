@@ -1,3 +1,4 @@
+import 'package:certificate_pass/pages/home/home_page.dart';
 import 'package:certificate_pass/routes/i_router.dart';
 import 'package:certificate_pass/routes/not_found_page.dart';
 import 'package:fluro/fluro.dart';
@@ -16,18 +17,19 @@ class Routes {
       return const NotFoundPage();
     });
 
-    router.define(home, handler: Handler(
-      handlerFunc: (BuildContext? context, Map<String, List<String> params) => const Home();
-    ));
+    router.define(home,
+        handler: Handler(
+            handlerFunc:
+                (BuildContext? context, Map<String, List<String>> params) =>
+                    const Home()));
 
 //_listRouter.add(LoginRouter());
 
     /// 初始化路由
     void initRouter(IRouterProvider routerProvider) {
-    routerProvider.initRouter(router);
+      routerProvider.initRouter(router);
     }
+
     _listRouter.forEach(initRouter);
-
-
   }
 }

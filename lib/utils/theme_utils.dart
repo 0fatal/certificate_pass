@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:ui';
 
 import 'package:certificate_pass/resources/colors.dart';
+import 'package:certificate_pass/utils/device_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:rxdart/rxdart.dart';
 
 class ThemeUtils {
   static bool isDark(BuildContext context) {

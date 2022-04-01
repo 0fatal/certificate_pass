@@ -1,6 +1,6 @@
 import 'dart:convert' as convert;
 
-import 'package:certificate_pass/utils/res/constant.dart';
+import 'package:certificate_pass/resources/constant.dart';
 import 'package:common_utils/common_utils.dart';
 
 /// 输出Log工具类

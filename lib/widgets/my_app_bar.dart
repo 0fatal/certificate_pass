@@ -15,12 +15,14 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       this.backImg = 'assets/images/ic_back_black.png',
       this.backImgColor,
       this.onPressed,
+      this.customTitle,
       this.isBack = true})
       : super(key: key);
 
   final Color? backgroundColor;
   final String title;
   final String centerTitle;
+  final Widget? customTitle;
   final String backImg;
   final Color? backImgColor;
   final String actionName;
@@ -80,18 +82,20 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
     final Widget titleWidget = Semantics(
       namesRoute: true,
       header: true,
-      child: Container(
-        alignment:
-            centerTitle.isEmpty ? Alignment.centerLeft : Alignment.center,
-        width: double.infinity,
-        margin: const EdgeInsets.symmetric(horizontal: 48.0),
-        child: Text(
-          title.isEmpty ? centerTitle : title,
-          style: const TextStyle(
-            fontSize: Dimens.font_sp18,
-          ),
-        ),
-      ),
+      child: customTitle == null
+          ? Container(
+              alignment:
+                  centerTitle.isEmpty ? Alignment.centerLeft : Alignment.center,
+              width: double.infinity,
+              margin: const EdgeInsets.symmetric(horizontal: 48.0),
+              child: Text(
+                title.isEmpty ? centerTitle : title,
+                style: const TextStyle(
+                  fontSize: Dimens.font_sp18,
+                ),
+              ),
+            )
+          : customTitle,
     );
 
     return AnnotatedRegion<SystemUiOverlayStyle>(

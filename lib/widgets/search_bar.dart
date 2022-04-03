@@ -2,11 +2,18 @@ import 'package:certificate_pass/resources/resources.dart';
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatefulWidget {
-  SearchBar({Key? key, this.enablePrefixIcon = true, this.hintText = '搜索'})
+  SearchBar(
+      {Key? key,
+      this.enablePrefixIcon = true,
+      this.enableSuffixIcon = false,
+      this.disabled = false,
+      this.hintText = '搜索'})
       : super(key: key);
 
   bool enablePrefixIcon;
+  bool enableSuffixIcon;
   String hintText;
+  bool disabled;
 
   @override
   _SearchBarState createState() {
@@ -43,7 +50,7 @@ class _SearchBarState extends State<SearchBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         width: double.infinity,
         height: 30,
         child: Row(children: [
@@ -63,8 +70,9 @@ class _SearchBarState extends State<SearchBar> {
                       Expanded(
                           flex: 1,
                           child: TextField(
+                            enabled: !widget.disabled,
                             controller: _controller,
-                            autofocus: true,
+                            autofocus: false,
                             focusNode: _focusNode,
                             style: TextStyle(fontSize: 14, color: Colors.black),
                             textAlignVertical: TextAlignVertical.center,
@@ -75,6 +83,9 @@ class _SearchBarState extends State<SearchBar> {
                               hintText: widget.hintText,
                               border: InputBorder.none,
                               prefixIcon: widget.enablePrefixIcon
+                                  ? Icon(Icons.search)
+                                  : null,
+                              suffixIcon: widget.enableSuffixIcon
                                   ? Icon(Icons.search)
                                   : null,
                               hintStyle: TextStyle(

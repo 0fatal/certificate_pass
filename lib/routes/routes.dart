@@ -1,6 +1,7 @@
 import 'package:certificate_pass/pages/exam/exam_router.dart';
 import 'package:certificate_pass/pages/home/home_page.dart';
 import 'package:certificate_pass/pages/index/index_router.dart';
+import 'package:certificate_pass/pages/login/login_router.dart';
 import 'package:certificate_pass/pages/profile/profile_router.dart';
 import 'package:certificate_pass/routes/i_router.dart';
 import 'package:certificate_pass/routes/not_found_page.dart';
@@ -29,6 +30,7 @@ class Routes {
     _listRouter.add(IndexRouter());
     _listRouter.add(ProfileRouter());
     _listRouter.add(ExamRouter());
+    _listRouter.add(LoginRouter());
 
     /// 初始化路由
     void initRouter(IRouterProvider routerProvider) {

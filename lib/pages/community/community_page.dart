@@ -51,16 +51,40 @@ class _CommunityPageState extends State<CommunityPage>
   Widget _buildTabBarView() {
     return Expanded(
         child: TabBarView(controller: _tabController, children: [
-      _buildPostGallery(),
-      _buildPostGallery(),
-      _buildPostGallery()
+      for (int i = 0; i < _tabsTitle.length; i++)
+        _buildPostGallery(_tabsTitle[i])
     ]));
   }
 
-  Widget _buildPostGallery() {
+  Widget _buildPostGallery(String tabTitle) {
     return Column(children: [
-      PostCard(),
-      PostCard(),
+      PostCard(
+        avatar: 'https://avatars.githubusercontent.com/u/72899968?s=40&v=4',
+        nickname: '小陈老师',
+        summary: '英语听力考试的时候一定要提前看题目，画出关键词',
+        starCount: 1632,
+        commentCount: 236,
+        postTime: DateTime(2022, 4, 5),
+        tabTitle: tabTitle,
+      ),
+      PostCard(
+        avatar: 'https://avatars.githubusercontent.com/u/72899968?s=40&v=4',
+        nickname: '小明',
+        summary: '用了这个APP，考证轻松了不少，要安利给其他朋友',
+        starCount: 66,
+        commentCount: 32,
+        postTime: DateTime(2022, 4, 6),
+        tabTitle: tabTitle,
+      ),
+      PostCard(
+        avatar: 'https://avatars.githubusercontent.com/u/72899968?s=40&v=4',
+        nickname: '赵大宝',
+        summary: '我终于过了',
+        starCount: 0,
+        commentCount: 0,
+        postTime: DateTime(2022, 4, 1),
+        tabTitle: tabTitle,
+      ),
     ]);
   }
 

@@ -1,6 +1,9 @@
+import 'package:certificate_pass/pages/community/community_page.dart';
+import 'package:certificate_pass/pages/exam/exam_page.dart';
 import 'package:certificate_pass/pages/home/provider.dart';
 import 'package:certificate_pass/pages/index/index_page.dart';
 import 'package:certificate_pass/pages/profile/profile_page.dart';
+import 'package:certificate_pass/pages/resource/resource_page.dart';
 import 'package:certificate_pass/resources/colors.dart';
 import 'package:certificate_pass/resources/dimens.dart';
 import 'package:certificate_pass/utils/theme_utils.dart';
@@ -33,10 +36,10 @@ class _HomeState extends State<Home> with RestorationMixin {
   void initData() {
     _pageList = [
       const IndexPage(),
+      ResourcePage(),
+      ExamPage(),
+      CommunityPage(),
       ProfilePage(),
-      const IndexPage(),
-      const IndexPage(),
-      const IndexPage()
     ];
   }
 

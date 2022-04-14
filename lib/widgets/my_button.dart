@@ -10,7 +10,7 @@ class MyButton extends StatelessWidget {
     this.fontSize = Dimens.font_sp18,
     this.textColor,
     this.disabledTextColor,
-    this.backgroundColor,
+    this.backgroundColor = const Color(0xFF4252E9),
     this.disabledBackgroundColor,
     this.minHeight = 48.0,
     this.minWidth = double.infinity,

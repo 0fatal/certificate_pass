@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MyAppBar(
       {Key? key,
+      this.color = Colors.black,
       this.backgroundColor,
       this.title = '',
       this.centerTitle = '',
@@ -20,6 +21,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       : super(key: key);
 
   final Color? backgroundColor;
+  final Color color;
   final String title;
   final String centerTitle;
   final Widget? customTitle;
@@ -90,9 +92,7 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
               margin: const EdgeInsets.symmetric(horizontal: 48.0),
               child: Text(
                 title.isEmpty ? centerTitle : title,
-                style: const TextStyle(
-                  fontSize: Dimens.font_sp18,
-                ),
+                style: TextStyle(fontSize: Dimens.font_sp18, color: color),
               ),
             )
           : customTitle,

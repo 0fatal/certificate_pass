@@ -1,5 +1,7 @@
 import 'package:bruno/bruno.dart';
+import 'package:certificate_pass/pages/profile/profile_router.dart';
 import 'package:certificate_pass/resources/gaps.dart';
+import 'package:certificate_pass/routes/fluro_navigator.dart';
 import 'package:certificate_pass/widgets/load_image.dart';
 import 'package:flutter/material.dart';
 
@@ -40,74 +42,83 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 
   Widget _buildProfileInfo() {
-    return Expanded(
-        child: Row(children: [
-      Expanded(
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-        Row(
-          children: [
-            ClipOval(
-              child: LoadImage(
-                'https://avatars.githubusercontent.com/u/72899968?s=40&v=4',
-                width: 80,
-              ),
-            ),
-            Gaps.hGap16,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  '学生国栋',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-                ),
-                Gaps.vGap4,
-                Text('大二', style: TextStyle(fontSize: 13, color: Colors.grey)),
-                Gaps.vGap4,
-                Row(
-                  children: [
-                    BrnTagCustom.buildBorderTag(
-                      tagText: 'VIP',
-                      textColor: Color(0xFFFF89C2),
-                      borderColor: Color(0xFFFF89C2),
-                      borderWidth: 1,
-                      fontSize: 14,
-                      tagBorderRadius: BorderRadius.circular(6),
-                      textPadding:
-                          EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+    return GestureDetector(
+        child: Container(
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+              Row(
+                children: [
+                  ClipOval(
+                    child: LoadImage(
+                      'https://avatars.githubusercontent.com/u/72899968?s=40&v=4',
+                      width: 80,
                     ),
-                    Gaps.hGap15,
-                    Text('通币：26')
-                  ],
-                )
-              ],
-            )
-          ],
-        ),
-        Icon(
-          Icons.keyboard_arrow_right,
-          size: 40,
-          color: Colors.grey[500],
-        )
-      ]))
-    ]));
+                  ),
+                  Gaps.hGap16,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '学生国栋',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16),
+                      ),
+                      Gaps.vGap4,
+                      Text('大二',
+                          style: TextStyle(fontSize: 13, color: Colors.grey)),
+                      Gaps.vGap4,
+                      Row(
+                        children: [
+                          BrnTagCustom.buildBorderTag(
+                            tagText: 'VIP',
+                            textColor: Color(0xFFFF89C2),
+                            borderColor: Color(0xFFFF89C2),
+                            borderWidth: 1,
+                            fontSize: 14,
+                            tagBorderRadius: BorderRadius.circular(6),
+                            textPadding: EdgeInsets.symmetric(
+                                horizontal: 6, vertical: 2),
+                          ),
+                          Gaps.hGap15,
+                          Text('通币：26')
+                        ],
+                      )
+                    ],
+                  )
+                ],
+              ),
+              Icon(
+                Icons.keyboard_arrow_right,
+                size: 40,
+                color: Colors.grey[500],
+              )
+            ])),
+        onTap: () {
+          NavigatorUtils.push(context, ProfileRouter.profileInfo,
+              arguments: {"type": 'student'});
+        });
   }
 
-  Widget _buildSingleOption({required String title, required Icon icon}) {
+  Widget _buildSingleOption(
+      {required String title, required Icon icon, GestureTapCallback? onTap}) {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: 14, vertical: 4),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(children: [
-              Align(alignment: Alignment.topLeft, child: Icon(Icons.tv)),
-              Gaps.hGap16,
-              Align(alignment: Alignment.topLeft, child: Text(title))
-            ]),
-            Align(
-                alignment: Alignment.bottomRight,
-                child: Icon(Icons.keyboard_arrow_right))
-          ],
+        child: GestureDetector(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(children: [
+                Align(alignment: Alignment.topLeft, child: Icon(Icons.tv)),
+                Gaps.hGap16,
+                Align(alignment: Alignment.topLeft, child: Text(title))
+              ]),
+              Align(
+                  alignment: Alignment.centerRight,
+                  child: Icon(Icons.keyboard_arrow_right))
+            ],
+          ),
+          onTap: onTap,
         ));
   }
 
@@ -127,7 +138,9 @@ class _ProfilePageState extends State<ProfilePage> {
       _buildSingleOption(title: '消息', icon: Icon(Icons.tv)),
       _buildSingleOption(title: '客服中心', icon: Icon(Icons.tv)),
       Gaps.vGap16,
-      _buildSingleOption(title: '设置', icon: Icon(Icons.tv)),
+      _buildSingleOption(title: '设置', icon: Icon(Icons.tv),onTap: () {
+        NavigatorUtils.push(context, ProfileRouter.settings);
+      }),
     ]);
   }
 }

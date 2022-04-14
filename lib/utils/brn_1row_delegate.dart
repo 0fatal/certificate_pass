@@ -35,7 +35,6 @@ class Brn1RowDelegate implements BrnMultiDataPickerDelegate {
     } else if (1 == component) {
       Map<String, List> secondMap = list[firstSelectedIndex];
       List secondList = secondMap.values.first;
-      //return secondList[index];
       return secondList[index].keys.first;
     } else {
       Map<String, List> secondMap = list[firstSelectedIndex];
@@ -46,7 +45,7 @@ class Brn1RowDelegate implements BrnMultiDataPickerDelegate {
 
   @override
   double? rowHeightForComponent(int component) {
-    return 40;
+    return null;
   }
 
   @override

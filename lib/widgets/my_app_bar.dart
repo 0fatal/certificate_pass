@@ -17,6 +17,8 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       this.backImgColor,
       this.onPressed,
       this.customTitle,
+      this.onBackPressed,
+      this.right,
       this.isBack = true})
       : super(key: key);
 
@@ -25,9 +27,11 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String centerTitle;
   final Widget? customTitle;
+  final VoidCallback? onBackPressed;
   final String backImg;
   final Color? backImgColor;
   final String actionName;
+  final Widget? right;
   final VoidCallback? onPressed;
   final bool isBack;
 
@@ -44,34 +48,36 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
         ? Positioned(
             right: 0.0,
             child: Theme(
-              data: Theme.of(context).copyWith(
-                buttonTheme: const ButtonThemeData(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0),
-                  minWidth: 60.0,
+                data: Theme.of(context).copyWith(
+                  buttonTheme: const ButtonThemeData(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    minWidth: 60.0,
+                  ),
                 ),
-              ),
-              child: MyButton(
-                key: const Key('actionName'),
-                fontSize: Dimens.font_sp14,
-                minWidth: null,
-                text: actionName,
-                textColor: context.isDark ? Colours.dark_text : Colours.text,
-                backgroundColor: Colors.transparent,
-                onPressed: onPressed,
-              ),
-            ),
+                child: MyButton(
+                  key: const Key('actionName'),
+                  fontSize: Dimens.font_sp14,
+                  minWidth: null,
+                  text: actionName,
+                  textColor: context.isDark ? Colours.dark_text : Colours.text,
+                  backgroundColor: Colors.transparent,
+                  onPressed: onPressed,
+                )),
           )
-        : Gaps.empty;
+        : right == null
+            ? Gaps.empty
+            : Positioned(right: 0.0, child: right!);
 
     final Widget back = isBack
         ? IconButton(
-            onPressed: () async {
-              FocusManager.instance.primaryFocus?.unfocus();
-              final isBack = await Navigator.maybePop(context);
-              if (!isBack) {
-                await SystemNavigator.pop();
-              }
-            },
+            onPressed: onBackPressed ??
+                () async {
+                  FocusManager.instance.primaryFocus?.unfocus();
+                  final isBack = await Navigator.maybePop(context);
+                  if (!isBack) {
+                    await SystemNavigator.pop();
+                  }
+                },
             tooltip: 'Back',
             padding: const EdgeInsets.all(12.0),
             icon: Image.asset(

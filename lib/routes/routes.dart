@@ -3,6 +3,7 @@ import 'package:certificate_pass/pages/home/home_page.dart';
 import 'package:certificate_pass/pages/index/index_router.dart';
 import 'package:certificate_pass/pages/login/login_router.dart';
 import 'package:certificate_pass/pages/profile/profile_router.dart';
+import 'package:certificate_pass/pages/resource/resource_router.dart';
 import 'package:certificate_pass/routes/i_router.dart';
 import 'package:certificate_pass/routes/not_found_page.dart';
 import 'package:fluro/fluro.dart';
@@ -31,6 +32,7 @@ class Routes {
     _listRouter.add(ProfileRouter());
     _listRouter.add(ExamRouter());
     _listRouter.add(LoginRouter());
+    _listRouter.add(ResourceRouter());
 
     /// 初始化路由
     void initRouter(IRouterProvider routerProvider) {

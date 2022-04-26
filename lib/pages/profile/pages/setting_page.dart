@@ -20,7 +20,9 @@ class SettingPage extends StatelessWidget {
           Divider(),
           _buildSingleOption(title: '护眼模式'),
           _buildSingleOption(title: '上课通知'),
-          _buildSingleOption(title: '清楚缓存'),
+          _buildSingleOption(
+              title: '清除缓存',
+              right: Text('13.9M', style: TextStyle(color: Color(0xFF9C9C9C)))),
           Divider(),
           _buildSingleOption(title: '关于')
         ],
@@ -31,13 +33,15 @@ class SettingPage extends StatelessWidget {
   Widget _buildSingleOption(
       {required String title, GestureTapCallback? onTap, Widget? right}) {
     return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 14, vertical: 4),
+        padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
         child: GestureDetector(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(children: [
-                Align(alignment: Alignment.topLeft, child: Text(title))
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: Text(title, style: TextStyle(fontSize: 16)))
               ]),
               Align(
                   alignment: Alignment.centerRight,

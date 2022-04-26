@@ -2,6 +2,8 @@ import 'package:bruno/bruno.dart';
 import 'package:certificate_pass/pages/profile/profile_router.dart';
 import 'package:certificate_pass/resources/gaps.dart';
 import 'package:certificate_pass/routes/fluro_navigator.dart';
+import 'package:certificate_pass/routes/routes.dart';
+import 'package:certificate_pass/widgets/my_app_bar.dart';
 import 'package:certificate_pass/widgets/my_button.dart';
 import 'package:certificate_pass/widgets/my_scroll_view.dart';
 import 'package:flutter/material.dart';
@@ -48,12 +50,14 @@ class _ProfileInfoPageState extends State<ProfileInfoPage>
     // TODO: implement build
     return SafeArea(
         child: Scaffold(
+            appBar: MyAppBar(
+              backgroundColor: Colors.white,
+            ),
             backgroundColor: Colors.white,
             body: MyScrollView(
               children: [
                 Padding(
-                    padding: EdgeInsets.only(
-                        top: 50, left: 16, right: 16, bottom: 25),
+                    padding: EdgeInsets.only(left: 16, right: 16, bottom: 25),
                     child: Row(children: [
                       Text(
                         '个人信息',

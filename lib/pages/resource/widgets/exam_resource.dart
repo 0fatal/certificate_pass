@@ -1,6 +1,7 @@
 import 'package:bruno/bruno.dart';
 import 'package:certificate_pass/pages/resource/resource_router.dart';
 import 'package:certificate_pass/routes/fluro_navigator.dart';
+import 'package:certificate_pass/widgets/my_scroll_view.dart';
 import 'package:flutter/material.dart';
 
 class ExamResource extends StatefulWidget {
@@ -45,7 +46,7 @@ class _ExamResourceState extends State<ExamResource>
     return Expanded(
         child: TabBarView(controller: _tabController, children: [
       for (int i = 0; i < _tabsTitle.length; i++)
-        Column(children: [
+        MyScrollView(crossAxisAlignment: CrossAxisAlignment.center, children: [
           if (i == 0)
             Padding(
                 padding: EdgeInsets.only(top: 15),
@@ -60,9 +61,10 @@ class _ExamResourceState extends State<ExamResource>
                       EdgeInsets.symmetric(horizontal: 50, vertical: 13),
                   borderRadius: BorderRadius.circular(5),
                 )),
-          Expanded(
-              child: GridView.count(
+          GridView.count(
+            shrinkWrap: true,
             crossAxisCount: 2,
+            physics: const NeverScrollableScrollPhysics(), // 禁止滚动
             crossAxisSpacing: 30,
             mainAxisSpacing: 50,
             padding: EdgeInsets.symmetric(horizontal: 60, vertical: 20),
@@ -73,7 +75,7 @@ class _ExamResourceState extends State<ExamResource>
                   child: Center(child: Text(cardContent[_tabsTitle[i]]![j])),
                 )
             ],
-          )),
+          ),
           BrnNormalButton(
               text: '错题本',
               onTap: () {

@@ -30,10 +30,12 @@ class _ResourcePageState extends State<ResourcePage> {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return SafeArea(
-        child: Scaffold(
-            backgroundColor: Colors.white,
-            body: Column(children: [_buildHeader(), _buildBody()])));
+    return ChangeNotifierProvider(
+        create: (_) => provider,
+        child: SafeArea(
+            child: Scaffold(
+                backgroundColor: Colors.white,
+                body: Column(children: [_buildHeader(), _buildBody()]))));
   }
 
   List<String> examList = ['大学英语四级'];
@@ -58,22 +60,20 @@ class _ResourcePageState extends State<ResourcePage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text('资料', style: TextStyles.textBold26),
-              ChangeNotifierProvider(
-                  create: (_) => provider,
-                  child: Consumer<ResourceProvider>(
-                      builder: (_, provider, __) => DropdownButton<String>(
-                            hint: Text('未添加'),
-                            items: [
-                              for (String examName in examList)
-                                DropdownMenuItem(
-                                    child: Text(examName), value: examName)
-                            ],
-                            value: provider.currentExam,
-                            onChanged: (obj) {
-                              provider.update(currentExam: obj);
-                            },
-                            borderRadius: BorderRadius.circular(1),
-                          )))
+              Consumer<ResourceProvider>(
+                  builder: (_, provider, __) => DropdownButton<String>(
+                        hint: Text('未添加'),
+                        items: [
+                          for (String examName in examList)
+                            DropdownMenuItem(
+                                child: Text(examName), value: examName)
+                        ],
+                        value: provider.currentExam,
+                        onChanged: (obj) {
+                          provider.update(currentExam: obj);
+                        },
+                        borderRadius: BorderRadius.circular(1),
+                      ))
             ],
           )
         ],
@@ -84,11 +84,9 @@ class _ResourcePageState extends State<ResourcePage> {
   }
 
   Widget _buildBody() {
-    return ChangeNotifierProvider(
-        create: (_) => provider,
-        child: Consumer<ResourceProvider>(
-          builder: (_, provider, __) =>
-              provider.currentExam == null ? EmptyExam() : ExamResource(),
-        ));
+    return Consumer<ResourceProvider>(
+      builder: (_, provider, __) =>
+          provider.currentExam == null ? EmptyExam() : ExamResource(),
+    );
   }
 }

@@ -70,16 +70,20 @@ class _ExamResourceState extends State<ExamResource>
             padding: EdgeInsets.symmetric(horizontal: 60, vertical: 20),
             children: [
               for (int j = 0; j < 6; j++)
-                Container(
-                  decoration: BoxDecoration(border: Border.all()),
-                  child: Center(child: Text(cardContent[_tabsTitle[i]]![j])),
+                GestureDetector(
+                  child: Container(
+                    decoration: BoxDecoration(border: Border.all()),
+                    child: Center(child: Text(cardContent[_tabsTitle[i]]![j])),
+                  ),
+                  onTap: () =>
+                      NavigatorUtils.push(context, ResourceRouter.problemPage),
                 )
             ],
           ),
           BrnNormalButton(
               text: '错题本',
               onTap: () {
-                NavigatorUtils.push(context, ResourceRouter.imitatedTestPage);
+                NavigatorUtils.push(context, ResourceRouter.problemBook);
               },
               backgroundColor: Color(0xFF4252E9),
               insertPadding: EdgeInsets.symmetric(horizontal: 50, vertical: 13),

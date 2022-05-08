@@ -4,6 +4,7 @@ import 'package:certificate_pass/resources/gaps.dart';
 import 'package:certificate_pass/resources/resources.dart';
 import 'package:certificate_pass/routes/fluro_navigator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 
 class CountDownPage extends StatefulWidget {
   CountDownPage({Key? key}) : super(key: key);
@@ -76,7 +77,6 @@ class _CountDownPageState extends State<CountDownPage> {
       margin: EdgeInsets.all(18),
       decoration: BoxDecoration(border: Border.all(color: Colors.grey[400]!)),
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        // Icon(Icons.work_outline_outlined),
         Container(
             padding: EdgeInsets.symmetric(horizontal: 8),
             alignment: Alignment.centerLeft,
@@ -147,11 +147,20 @@ class _CountDownPageState extends State<CountDownPage> {
                 Gaps.hGap12,
                 Text("置顶"),
                 Spacer(),
-                BrnCheckbox(
-                    isSelected: _upTop,
-                    child: Text(_upTop ? "开启" : "关闭"),
-                    radioIndex: 0,
-                    onValueChangedAtIndex: (_, upTop) {
+                // BrnCheckbox(
+                //     isSelected: _upTop,
+                //     child: Text(_upTop ? "开启" : "关闭"),
+                //     radioIndex: 0,
+                //     onValueChangedAtIndex: (_, upTop) {
+                //       this.setState(() {
+                //         _upTop = upTop;
+                //       });
+                //     }),
+                FlutterSwitch(
+                    value: _upTop,
+                    width: 50.0,
+                    height: 22.0,
+                    onToggle: (upTop) {
                       this.setState(() {
                         _upTop = upTop;
                       });

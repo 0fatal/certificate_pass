@@ -3,7 +3,6 @@ import 'package:certificate_pass/pages/login/login_router.dart';
 import 'package:certificate_pass/pages/login/provider/register_form_provider.dart';
 import 'package:certificate_pass/resources/gaps.dart';
 import 'package:certificate_pass/routes/fluro_navigator.dart';
-import 'package:certificate_pass/routes/routes.dart';
 import 'package:certificate_pass/utils/brn_1row_delegate.dart';
 import 'package:certificate_pass/widgets/my_button.dart';
 import 'package:certificate_pass/widgets/my_scroll_view.dart';
@@ -125,10 +124,7 @@ class _RegisterPageState extends State<RegisterPage>
                                   DateTime.parse('2002-01-01 18:26:59'),
                               // 支持DateTimePickerMode.date、DateTimePickerMode.datetime、DateTimePickerMode.time
                               pickerMode: BrnDateTimePickerMode.date,
-                              onConfirm: (dateTime, list) {
-                            BrnToast.show(
-                                "onConfirm:  $dateTime   $list", context);
-                          });
+                              onConfirm: (dateTime, list) {});
                         }),
                     if (isStudent)
                       BrnTextInputFormItem(
@@ -145,9 +141,7 @@ class _RegisterPageState extends State<RegisterPage>
                             context: context,
                             title: '请选择专业',
                             delegate: Brn1RowDelegate(majorList),
-                            confirmClick: (list) {
-                              BrnToast.show(list.toString(), context);
-                            },
+                            confirmClick: (list) {},
                           ).show();
                         },
                       ),
@@ -214,7 +208,8 @@ class _RegisterPageState extends State<RegisterPage>
                       padding: EdgeInsets.all(10),
                       child: MyButton(
                           onPressed: () {
-                            NavigatorUtils.push(context, Routes.home);
+                            NavigatorUtils.push(
+                                context, LoginRouter.licensePage);
                           },
                           text: '登录（进入首页）'),
                     ),

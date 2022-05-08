@@ -1,4 +1,6 @@
 import 'package:certificate_pass/resources/gaps.dart';
+import 'package:certificate_pass/routes/fluro_navigator.dart';
+import 'package:certificate_pass/routes/routes.dart';
 import 'package:certificate_pass/widgets/my_app_bar.dart';
 import 'package:certificate_pass/widgets/my_button.dart';
 import 'package:certificate_pass/widgets/my_scroll_view.dart';
@@ -30,7 +32,7 @@ class LicensePage extends StatelessWidget {
               alignment: Alignment.center,
               child: MyButton(
                 text: '同意',
-                onPressed: () {},
+                onPressed: () => NavigatorUtils.push(context, Routes.home),
                 minWidth: 200,
                 backgroundColor: Color(0xFF1890FF),
                 radius: 12,

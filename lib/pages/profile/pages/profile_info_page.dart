@@ -2,7 +2,6 @@ import 'package:bruno/bruno.dart';
 import 'package:certificate_pass/pages/profile/profile_router.dart';
 import 'package:certificate_pass/resources/gaps.dart';
 import 'package:certificate_pass/routes/fluro_navigator.dart';
-import 'package:certificate_pass/routes/routes.dart';
 import 'package:certificate_pass/widgets/my_app_bar.dart';
 import 'package:certificate_pass/widgets/my_button.dart';
 import 'package:certificate_pass/widgets/my_scroll_view.dart';
@@ -131,7 +130,7 @@ class _ProfileInfoPageState extends State<ProfileInfoPage>
                           fixWidthMode: false,
                           spacing: 12,
                           onSelect: (selectedIndexes) {
-                            BrnToast.show(selectedIndexes.toString(), context);
+                            // BrnToast.show(selectedIndexes.toString(), context);
                           }))
                 ]),
                 Gaps.vGap32,

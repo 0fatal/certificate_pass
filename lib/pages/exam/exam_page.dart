@@ -1,6 +1,8 @@
 import 'package:bruno/bruno.dart';
+import 'package:certificate_pass/pages/exam/exam_router.dart';
 import 'package:certificate_pass/resources/gaps.dart';
 import 'package:certificate_pass/resources/styles.dart';
+import 'package:certificate_pass/routes/fluro_navigator.dart';
 import 'package:flutter/material.dart';
 
 class ExamPage extends StatefulWidget {
@@ -30,7 +32,27 @@ class _ExamPageState extends State<ExamPage> {
         child: Scaffold(
       body: Column(children: [
         Padding(
-            padding: EdgeInsets.only(left: 14, top: 30),
+          padding: EdgeInsets.all(12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              GestureDetector(
+                child: Icon(Icons.calendar_today_outlined,
+                    color: Colors.grey[600]!),
+                onTap: () =>
+                    NavigatorUtils.push(context, ExamRouter.calendarPage),
+              ),
+              Gaps.hGap8,
+              GestureDetector(
+                child: Icon(Icons.add, color: Colors.grey[600]!),
+                onTap: () =>
+                    NavigatorUtils.push(context, ExamRouter.countdownPage),
+              )
+            ],
+          ),
+        ),
+        Padding(
+            padding: EdgeInsets.only(left: 14),
             child: Align(
                 child: Text('我的备考', style: TextStyles.textBold26),
                 alignment: Alignment.topLeft)),
@@ -45,6 +67,8 @@ class _ExamPageState extends State<ExamPage> {
               Gaps.vGap16,
               BrnNormalButton(
                 text: '去报考',
+                onTap: () =>
+                    NavigatorUtils.push(context, ExamRouter.memoDetailPage),
                 backgroundColor: Color(0xFF4252E9),
                 borderRadius: BorderRadius.circular(50),
                 insertPadding:

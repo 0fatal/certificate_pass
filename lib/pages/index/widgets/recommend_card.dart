@@ -14,7 +14,7 @@ class RecommendCard extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      width: 120,
+      width: 100,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           color: Colors.grey[200], borderRadius: BorderRadius.circular(10)),
@@ -26,12 +26,12 @@ class RecommendCard extends StatelessWidget {
             )),
         Row(children: [
           Text(subTitle, style: TextStyle(color: Colors.grey[500])),
-          icon != null
-              ? Container(
-                  margin: EdgeInsets.only(left: 20),
-                  child: icon,
-                )
-              : Container()
+          // icon != null
+          //     ? Container(
+          //         margin: EdgeInsets.only(left: 20),
+          //         child: icon,
+          //       )
+          //     : Container()
         ]),
       ]),
     );
@@ -49,9 +49,8 @@ class RecommendCardList extends StatelessWidget {
       children: [
         Container(
             width: double.infinity,
-            child: Wrap(
-              spacing: 10.0,
-              alignment: WrapAlignment.center,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: cards,
             )),
       ],

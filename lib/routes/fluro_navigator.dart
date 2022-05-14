@@ -20,6 +20,13 @@ class NavigatorUtils {
     );
   }
 
+  static Future jump(BuildContext context, String title) {
+    return Routes.router
+        .navigateTo(context, title, transition: TransitionType.inFromRight);
+
+    /// 指定了 转场动画
+  }
+
   static void pushResult(
       BuildContext context, String path, Function(Object) function,
       {bool replace = false, bool clearStack = false, Object? arguments}) {

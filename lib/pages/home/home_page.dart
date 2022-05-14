@@ -11,7 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key, this.curPage}) : super(key: key);
+
+  String? curPage;
 
   @override
   _HomeState createState() {
@@ -41,10 +43,19 @@ class _HomeState extends State<Home> with RestorationMixin {
       CommunityPage(),
       ProfilePage(),
     ];
+    if (widget.curPage != null) {
+      int index = ['index', 'resource', 'exam', 'community', 'profile']
+          .indexOf(widget.curPage!);
+      provider = HomeProvider(index);
+      _pageController = PageController(initialPage: index);
+    } else {
+      provider = HomeProvider(0);
+      _pageController = PageController();
+    }
   }
 
-  final PageController _pageController = PageController();
-  HomeProvider provider = HomeProvider();
+  late PageController _pageController;
+  late HomeProvider provider;
   late List<Widget> _pageList;
 
   @override
@@ -65,15 +76,16 @@ class _HomeState extends State<Home> with RestorationMixin {
                     selectedItemColor: Theme.of(context).primaryColor,
                     unselectedItemColor: Colours.unselected_item_color,
                     onTap: (int index) {
-                      print('tabbar');
-                      print(index);
                       _pageController.jumpToPage(index);
                     },
                   )),
           body: PageView(
               controller: _pageController,
               children: _pageList,
-              onPageChanged: (int index) => provider.value = index),
+              physics: NeverScrollableScrollPhysics(),
+              onPageChanged: (int index) {
+                provider.value = index;
+              }),
         ));
   }
 

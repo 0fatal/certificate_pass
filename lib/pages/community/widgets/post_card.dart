@@ -1,4 +1,5 @@
 import 'package:certificate_pass/resources/gaps.dart';
+import 'package:certificate_pass/utils/image_utils.dart';
 import 'package:certificate_pass/widgets/load_image.dart';
 import 'package:flutter/material.dart';
 
@@ -11,9 +12,11 @@ class PostCard extends StatefulWidget {
       required this.nickname,
       required this.postTime,
       required this.summary,
+      this.format = ImageFormat.png,
       required this.tabTitle})
       : super(key: key);
   String avatar;
+  ImageFormat format;
   String nickname;
   DateTime postTime;
   int commentCount;
@@ -68,6 +71,7 @@ class _PostCardState extends State<PostCard> {
                     widget.avatar,
                     width: 32,
                     height: 32,
+                    format: widget.format,
                   ),
                 ),
                 Gaps.hGap10,

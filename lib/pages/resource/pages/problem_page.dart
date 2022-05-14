@@ -65,8 +65,7 @@ class ProblemPage extends StatelessWidget {
                     icon: Icon(Icons.access_alarm_outlined,
                         color: Colors.blue, size: 20)),
               ], "长对话", Colors.blue),
-              Gaps.vGap32,
-              Gaps.vGap5,
+              Gaps.vGap15,
               BrnNormalButton(
                   text: '错题本',
                   onTap: () {
@@ -109,7 +108,7 @@ class ProblemPage extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(), // 禁止滚动
         crossAxisSpacing: 30,
         mainAxisSpacing: 40,
-        padding: EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         children: [
           for (MenuDefine menu in menus)
             Column(children: [

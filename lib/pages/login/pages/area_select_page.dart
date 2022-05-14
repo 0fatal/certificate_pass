@@ -48,7 +48,7 @@ class _AreaSelectPageState extends State<AreaSelectPage> {
                         });
                       },
                       value: currentArea),
-                  SizedBox(height: 200),
+                  SizedBox(height: 60),
                   MyButton(
                     onPressed: () {
                       NavigatorUtils.push(

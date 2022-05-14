@@ -1,4 +1,4 @@
-import 'package:certificate_pass/pages/home/home_page.dart';
+import 'package:certificate_pass/pages/login/pages/area_select_page.dart';
 import 'package:certificate_pass/routes/not_found_page.dart';
 import 'package:certificate_pass/routes/routes.dart';
 import 'package:flutter/material.dart';
@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
         primarySwatch: Colors.blue,
       ),
       onGenerateRoute: Routes.router.generator,
-      home: const Home(),
+      home: AreaSelectPage(),
       builder: (BuildContext context, Widget? child) {
         /// 保证文字大小不受手机系统设置影响 https://www.kikt.top/posts/flutter/layout/dynamic-text/
         return MediaQuery(

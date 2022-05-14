@@ -2,6 +2,7 @@ import 'package:certificate_pass/pages/login/login_router.dart';
 import 'package:certificate_pass/pages/login/widgets/page_header.dart';
 import 'package:certificate_pass/resources/gaps.dart';
 import 'package:certificate_pass/routes/fluro_navigator.dart';
+import 'package:certificate_pass/routes/routes.dart';
 import 'package:certificate_pass/widgets/my_button.dart';
 import 'package:certificate_pass/widgets/my_scroll_view.dart';
 import 'package:certificate_pass/widgets/select_box.dart';
@@ -47,7 +48,7 @@ class _IdentitySelectPageState extends State<IdentitySelectPage> {
                         });
                       },
                       value: identity),
-                  SizedBox(height: 118),
+                  SizedBox(height: 60),
                   PageHeader(
                     title: '请选择年龄',
                     subtitle: '请选择年龄，以便精准推荐证书与资料',
@@ -68,7 +69,8 @@ class _IdentitySelectPageState extends State<IdentitySelectPage> {
                   Gaps.vGap12,
                   MyButton(
                     onPressed: () {
-                      NavigatorUtils.push(context, LoginRouter.licensePage);
+                      NavigatorUtils.push(context, Routes.home,
+                          clearStack: true);
                     },
                     text: '进入首页',
                   )

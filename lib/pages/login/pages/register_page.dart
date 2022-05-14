@@ -188,11 +188,9 @@ class _RegisterPageState extends State<RegisterPage>
                               fixWidthMode: false,
                               spacing: 12,
                               onSelect: (selectedIndexes) {
-                                BrnToast.show(
-                                    selectedIndexes.toString(), context);
                               }))
                     ]),
-                    Gaps.vGap32,
+                    Gaps.vGap16,
                     Padding(
                         padding: EdgeInsets.symmetric(horizontal: 10),
                         child: MyButton(

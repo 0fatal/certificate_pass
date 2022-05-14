@@ -32,7 +32,8 @@ class LicensePage extends StatelessWidget {
               alignment: Alignment.center,
               child: MyButton(
                 text: '同意',
-                onPressed: () => NavigatorUtils.push(context, Routes.home),
+                onPressed: () =>
+                    NavigatorUtils.push(context, Routes.home, clearStack: true),
                 minWidth: 200,
                 backgroundColor: Color(0xFF1890FF),
                 radius: 12,

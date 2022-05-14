@@ -96,7 +96,7 @@ class _ProblemBookPageState extends State<ProblemBookPage> {
                           ),
                           Text("移除", style: TextStyle(fontSize: 18)),
                         ]),
-                        width: 150),
+                        width: 100),
                     Icon(Icons.wysiwyg, color: Color(0xFF1890FF), size: 30),
                     SizedBox(
                         child: Row(
@@ -111,7 +111,7 @@ class _ProblemBookPageState extends State<ProblemBookPage> {
                                     color: Color(0xFF1890FF), fontSize: 18)),
                           ],
                         ),
-                        width: 150)
+                        width: 100)
                   ],
                 ),
               ),

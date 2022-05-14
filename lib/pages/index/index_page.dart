@@ -70,8 +70,8 @@ class _IndexPageState extends State<IndexPage>
                   ]),
             ),
             ExamInfoBanner(
-              examDate: DateTime.now(),
-              examName: '2021年下半年CET6',
+              examDate: DateTime.parse("2022-12-18 15:00:00"),
+              examName: '2022年下半年CET6',
             ),
             BrnTabBar(
                 backgroundcolor: Colors.grey[50]!,
@@ -96,11 +96,13 @@ class _IndexPageState extends State<IndexPage>
                   RecommendCard(
                       title: '备考好物',
                       subTitle: '学习福利',
-                      icon: Icon(Icons.tv, color: Colors.blue, size: 24)),
+                      icon: Icon(Icons.file_download,
+                          color: Colors.blue, size: 24)),
                   RecommendCard(
                       title: '报考咨询',
                       subTitle: '在线答疑',
-                      icon: Icon(Icons.tv, color: Colors.blue, size: 24))
+                      icon: Icon(Icons.message_outlined,
+                          color: Colors.blue, size: 24))
                 ])
               ]),
             ),
@@ -112,6 +114,7 @@ class _IndexPageState extends State<IndexPage>
                 textAlign: TextAlign.left,
               ),
             ),
+            Gaps.vGap8,
             CertificateCard(
                 title: '初级注册会计师',
                 bgColor: Color(0xFFCECDEE),

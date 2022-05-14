@@ -7,7 +7,6 @@ import 'package:certificate_pass/pages/resource/resource_router.dart';
 import 'package:certificate_pass/routes/i_router.dart';
 import 'package:certificate_pass/routes/not_found_page.dart';
 import 'package:fluro/fluro.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
@@ -18,7 +17,6 @@ class Routes {
   static void initRoutes() {
     router.notFoundHandler = Handler(
         handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-      debugPrint('未找到目标页');
       return const NotFoundPage();
     });
 
@@ -26,7 +24,7 @@ class Routes {
         handler: Handler(
             handlerFunc:
                 (BuildContext? context, Map<String, List<String>> params) =>
-                    const Home()));
+                    Home(curPage: params["index"]?.first)));
 
     _listRouter.add(IndexRouter());
     _listRouter.add(ProfileRouter());

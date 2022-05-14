@@ -17,14 +17,14 @@ class ImageUtils {
   static ImageProvider getImageProvider(String? imageUrl,
       {String holderImg = 'none'}) {
     if (TextUtil.isEmpty(imageUrl)) {
-      return AssetImage(getImgPath(holderImg));
+      return AssetImage(getImgPath(holderImg, format: ImageFormat.jpeg));
     }
     return CachedNetworkImageProvider(imageUrl!);
   }
 }
 
-enum ImageFormat { png, jpg, gif, webp }
+enum ImageFormat { png, jpg, gif, webp, jpeg }
 
 extension ImageFormatExtension on ImageFormat {
-  String get value => ['png', 'jpg', 'gif', 'webp'][index];
+  String get value => ['png', 'jpg', 'gif', 'webp', 'jpeg'][index];
 }

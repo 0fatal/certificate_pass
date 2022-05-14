@@ -77,44 +77,46 @@ class CalendarPage extends StatelessWidget {
       appBar: MyAppBar(
         centerTitle: "日历",
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            width: double.infinity,
-            height: 500,
-            child: MyScrollView(children: [
-              SizedBox(
-                  width: double.infinity,
-                  height: 500,
-                  child: Calendar(
-                    startOnMonday: false,
-                    weekDays: ['一', '二', '三', '四', '五', '六', '日'],
-                    eventsList: _eventList,
-                    isExpandable: true,
-                    eventDoneColor: Colors.green,
-                    selectedColor: Colors.pink,
-                    selectedTodayColor: Colors.red,
-                    todayColor: Colors.blue,
-                    eventColor: null,
-                    locale: 'zh-CN',
-                    allDayEventText: '全天',
-                    multiDayEndText: '重复',
-                    isExpanded: true,
-                    expandableDateFormat: 'EEEE, dd. MMMM yyyy',
-                    datePickerType: DatePickerType.date,
-                    dayOfWeekStyle: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w800,
-                        fontSize: 11),
-                  ))
-            ]),
-          ),
-          Padding(
-            padding: EdgeInsets.only(left: 24),
-            child: _buildEventList(),
-          ),
-        ],
-      ),
+      body: MyScrollView(children: [
+        Column(
+          children: [
+            SizedBox(
+              width: double.infinity,
+              height: 400,
+              child: MyScrollView(children: [
+                SizedBox(
+                    width: double.infinity,
+                    height: 500,
+                    child: Calendar(
+                      startOnMonday: false,
+                      weekDays: ['一', '二', '三', '四', '五', '六', '日'],
+                      eventsList: _eventList,
+                      isExpandable: true,
+                      eventDoneColor: Colors.green,
+                      selectedColor: Colors.pink,
+                      selectedTodayColor: Colors.red,
+                      todayColor: Colors.blue,
+                      eventColor: null,
+                      locale: 'zh-CN',
+                      allDayEventText: '全天',
+                      multiDayEndText: '重复',
+                      isExpanded: true,
+                      expandableDateFormat: 'EEEE, dd. MMMM yyyy',
+                      datePickerType: DatePickerType.date,
+                      dayOfWeekStyle: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w800,
+                          fontSize: 11),
+                    ))
+              ]),
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 24),
+              child: _buildEventList(),
+            ),
+          ],
+        ),
+      ]),
       floatingActionButton: FloatingActionButton(
         onPressed: () => NavigatorUtils.push(context, ExamRouter.countdownPage),
         child: const Icon(Icons.add),

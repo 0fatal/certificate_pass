@@ -2,6 +2,8 @@ import 'package:bruno/bruno.dart';
 import 'package:certificate_pass/pages/community/widgets/post_card.dart';
 import 'package:certificate_pass/resources/resources.dart';
 import 'package:certificate_pass/resources/styles.dart';
+import 'package:certificate_pass/utils/image_utils.dart';
+import 'package:certificate_pass/widgets/my_scroll_view.dart';
 import 'package:flutter/material.dart';
 
 class CommunityPage extends StatefulWidget {
@@ -32,7 +34,7 @@ class _CommunityPageState extends State<CommunityPage>
     return SafeArea(
         child: Scaffold(
       backgroundColor: Color(0xFFEEEEEE),
-      body: Column(
+      body: MyScrollView(
         children: [_buildHeader(), _buildTabs(), _buildTabBarView()],
       ),
     ));
@@ -49,17 +51,19 @@ class _CommunityPageState extends State<CommunityPage>
   }
 
   Widget _buildTabBarView() {
-    return Expanded(
+    return SizedBox(
+        height: 700,
         child: TabBarView(controller: _tabController, children: [
-      for (int i = 0; i < _tabsTitle.length; i++)
-        _buildPostGallery(_tabsTitle[i])
-    ]));
+          for (int i = 0; i < _tabsTitle.length; i++)
+            _buildPostGallery(_tabsTitle[i])
+        ]));
   }
 
   Widget _buildPostGallery(String tabTitle) {
     return Column(children: [
       PostCard(
-        avatar: 'https://avatars.githubusercontent.com/u/72899968?s=40&v=4',
+        avatar: 'avatar',
+        format: ImageFormat.jpeg,
         nickname: '小陈老师',
         summary: '英语听力考试的时候一定要提前看题目，画出关键词',
         starCount: 1632,
@@ -68,7 +72,8 @@ class _CommunityPageState extends State<CommunityPage>
         tabTitle: tabTitle,
       ),
       PostCard(
-        avatar: 'https://avatars.githubusercontent.com/u/72899968?s=40&v=4',
+        avatar: 'avatar',
+        format: ImageFormat.jpeg,
         nickname: '小明',
         summary: '用了这个APP，考证轻松了不少，要安利给其他朋友',
         starCount: 66,
@@ -77,7 +82,8 @@ class _CommunityPageState extends State<CommunityPage>
         tabTitle: tabTitle,
       ),
       PostCard(
-        avatar: 'https://avatars.githubusercontent.com/u/72899968?s=40&v=4',
+        avatar: 'avatar',
+        format: ImageFormat.jpeg,
         nickname: '赵大宝',
         summary: '我终于过了',
         starCount: 0,

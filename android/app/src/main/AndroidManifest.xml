@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zxy.certificate_pass">
    <application
-        android:label="certificate_pass"
+        android:label="证证通"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

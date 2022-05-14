@@ -41,6 +41,7 @@ dependencies:
   flutter_neat_and_clean_calendar: ^0.3.0+12
   lunar: 1.2.20
   flutter_switch: ^0.3.2
+  url_launcher: ^6.1.2
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -51,7 +52,6 @@ dependencies:
   date_format: 2.0.5
   # 处理键盘事件 https://github.com/diegoveloper/flutter_keyboard_actions
   keyboard_actions: ^3.4.7
-  url_launcher: 6.0.20
 
 dev_dependencies:
   flutter_test:

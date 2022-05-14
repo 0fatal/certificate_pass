@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
 class HomeProvider extends RestorableInt {
-  HomeProvider() : super(0);
+  HomeProvider(int index) : super(index);
 }

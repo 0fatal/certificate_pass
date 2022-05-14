@@ -14,7 +14,7 @@ class ExamInfoBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    Duration duration = DateTime.now().difference(examDate);
+    Duration duration = examDate.difference(DateTime.now());
     int durationDay = (duration.inHours / 24).toInt();
     int durationHours = duration.inHours % 24;
 

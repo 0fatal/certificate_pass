@@ -1,8 +1,8 @@
 import 'package:bruno/bruno.dart';
-import 'package:certificate_pass/pages/exam/exam_router.dart';
 import 'package:certificate_pass/resources/gaps.dart';
 import 'package:certificate_pass/resources/resources.dart';
 import 'package:certificate_pass/routes/fluro_navigator.dart';
+import 'package:certificate_pass/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 
@@ -61,7 +61,7 @@ class _CountDownPageState extends State<CountDownPage> {
       BrnNormalButton(
         text: '保存',
         onTap: () {
-          NavigatorUtils.push(context, ExamRouter.countdownPage);
+          NavigatorUtils.jump(context, Routes.home + '?index=exam');
         },
         fontSize: 14,
         fontWeight: FontWeight.normal,
@@ -106,8 +106,7 @@ class _CountDownPageState extends State<CountDownPage> {
         ),
         Container(
             padding: EdgeInsets.symmetric(horizontal: 8),
-            child: Expanded(
-                child: Row(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -134,7 +133,7 @@ class _CountDownPageState extends State<CountDownPage> {
                       ]),
                 )
               ],
-            ))),
+            )),
         Divider(
           color: Colors.grey[400]!,
           height: 1,

@@ -3,6 +3,7 @@ import 'package:certificate_pass/pages/exam/exam_router.dart';
 import 'package:certificate_pass/resources/gaps.dart';
 import 'package:certificate_pass/resources/resources.dart';
 import 'package:certificate_pass/routes/fluro_navigator.dart';
+import 'package:certificate_pass/widgets/my_app_bar.dart';
 import 'package:certificate_pass/widgets/my_scroll_view.dart';
 import 'package:flutter/material.dart';
 
@@ -78,7 +79,7 @@ class _MemoDetailPageState extends State<MemoDetailPage> {
               children: [
                 Icon(Icons.calculate_outlined),
                 Gaps.hGap12,
-                Text("距离考试还有 42 天")
+                Text("距离考试还有 218 天")
               ],
             )),
         Divider(
@@ -117,8 +118,7 @@ class _MemoDetailPageState extends State<MemoDetailPage> {
         ),
         Container(
             padding: EdgeInsets.symmetric(horizontal: 8),
-            child: Expanded(
-                child: Row(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -139,15 +139,14 @@ class _MemoDetailPageState extends State<MemoDetailPage> {
                       ]),
                 )
               ],
-            ))),
+            )),
         Divider(
           color: Colors.grey[400]!,
           height: 1,
         ),
         Container(
             padding: EdgeInsets.symmetric(horizontal: 8),
-            child: Expanded(
-                child: Row(
+            child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -174,7 +173,7 @@ class _MemoDetailPageState extends State<MemoDetailPage> {
                       ]),
                 )
               ],
-            ))),
+            )),
       ]),
     );
   }
@@ -210,6 +209,9 @@ class _MemoDetailPageState extends State<MemoDetailPage> {
     return SafeArea(
         child: Scaffold(
             backgroundColor: Colors.white,
+            appBar: MyAppBar(
+              centerTitle: "我的备考",
+            ),
             body: MyScrollView(children: [
               _buildHeader(),
               Column(

@@ -70,10 +70,8 @@ jobs:
     needs: draft-release
     steps:
       # Set up Flutter.
-      - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
-        with:
-          channel: master
+      - name: Clone Flutter repository
+        uses: subosito/flutter-action@v2.4.0
 
       - name: Install Android dependencies
         if: matrix.target == 'Android'

@@ -12,13 +12,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: ["apk --debug", web]
+        target: ["apk --debug"]
     steps:
       # Set up Flutter.
-      - name: Clone Flutter repository with master channel
-        uses: subosito/flutter-action@5e1529bc12adae5b26f30f0a4046ac743d6f0c5d
-        with:
-          channel: master
+      - name: Clone Flutter repository
+        uses: subosito/flutter-action@v2.4.0
+
       - run: flutter doctor -v
 
       - name: Checkout code

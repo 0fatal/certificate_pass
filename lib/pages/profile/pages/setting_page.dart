@@ -32,28 +32,29 @@ class SettingPage extends StatelessWidget {
 
   Widget _buildSingleOption(
       {required String title, GestureTapCallback? onTap, Widget? right}) {
-    return Padding(
+    return InkWell(
+      child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-        child: GestureDetector(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(children: [
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Text(title, style: TextStyle(fontSize: 16)))
-              ]),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(children: [
               Align(
-                  alignment: Alignment.centerRight,
-                  child: Row(
-                    children: [
-                      right ?? Empty(),
-                      Icon(Icons.keyboard_arrow_right)
-                    ],
-                  ))
-            ],
-          ),
-          onTap: onTap,
-        ));
+                  alignment: Alignment.topLeft,
+                  child: Text(title, style: TextStyle(fontSize: 16)))
+            ]),
+            Align(
+                alignment: Alignment.centerRight,
+                child: Row(
+                  children: [
+                    right ?? Empty(),
+                    Icon(Icons.keyboard_arrow_right)
+                  ],
+                ))
+          ],
+        ),
+      ),
+      onTap: onTap,
+    );
   }
 }

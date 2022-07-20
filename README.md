@@ -3,13 +3,13 @@
   <h3><code>证证通</code></h3>
   <p><em>证证通，你的考证助手</em></p>
   <img src="https://img.shields.io/badge/uses-Flutter-9cf?labelColor=blue&logo=flutter" alt="Use Swift" />
-  <a href="https://github.com/ZacharyWin/certificate_pass/releases/latest"><img src="https://img.shields.io/github/v/release/ZacharyWin/certificate_pass?labelColor=282c34&logo=GitHub" alt="GitHub Release" /></a>
+  <a href="https://github.com/0xfatal/certificate_pass/releases/latest"><img src="https://img.shields.io/github/v/release/0xfatal/certificate_pass?labelColor=282c34&logo=GitHub" alt="GitHub Release" /></a>
 </div>
 
 
 ## 如何下载安装？
 
-[![GitHub Release](https://img.shields.io/github/v/release/ZacharyWin/certificate_pass?labelColor=282c34&logo=GitHub&style=for-the-badge)](https://github.com/ZacharyWin/certificate_pass/releases/latest)
+[![GitHub Release](https://img.shields.io/github/v/release/0xfatal/certificate_pass?labelColor=282c34&logo=GitHub&style=for-the-badge)](https://github.com/0xfatal/certificate_pass/releases/latest)
 
 
 > 考证助手app，目前只实现UI页面，后续再考虑接入api

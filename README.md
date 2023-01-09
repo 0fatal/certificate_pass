@@ -3,7 +3,7 @@
   <h3><code>证证通</code></h3>
   <p><em>证证通，你的考证助手</em></p>
   <img src="https://img.shields.io/badge/uses-Flutter-9cf?labelColor=blue&logo=flutter" alt="Use Swift" />
-  <a href="https://github.com/0xfatal/certificate_pass/releases/latest"><img src="https://img.shields.io/github/v/release/0xfatal/certificate_pass?labelColor=282c34&logo=GitHub" alt="GitHub Release" /></a>
+  <a href="https://github.com/0fatal/certificate_pass/releases/latest"><img src="https://img.shields.io/github/v/release/0xfatal/certificate_pass?labelColor=282c34&logo=GitHub" alt="GitHub Release" /></a>
 </div>
 
 
